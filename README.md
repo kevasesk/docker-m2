@@ -34,10 +34,26 @@ docker-compose up -d
 
 chmod +x bin/*
 
+#For new project
+
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition .
+
+bin/magento setup:install --base-url=https://magento.local --db-host=db --db-name=magento --db-user=magento --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=eugenesm --admin-password=eugenesm1029 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --elasticsearch-host=elasticsearch
+
+cp src/nginx.conf.sample src/nginx.conf.dev
+
+bin/magento setup:upgrade
+
+'Magento_TwoFactorAuth' => 0,
+
 # copy default magento dev env.php
 cp src/app/etc/env.php.docker src/app/etc/env.php
 cp src/wp/wp-config.php.docker src/wp/wp-config.php
 
+#For new 
+mkdir src
+
+#for exists
 bin/copytocontainer --all ## Initial copy will take a few minutes...
 
 # Downgrade composer to v1
