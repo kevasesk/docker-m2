@@ -20,7 +20,6 @@ services:
       - sockdata:/sock
       - ssldata:/etc/nginx/certs
       - ${MAGENTO_MEDIA}:/var/www/html/pub/media
-      - ${WP_UPLOADS}:/var/www/html/wp/wp-content/uploads
 
   phpfpm:
     image: markoshust/magento-php:7.3-fpm
