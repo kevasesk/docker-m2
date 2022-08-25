@@ -19,6 +19,7 @@ services:
       - appdata:/var/www/html
       - sockdata:/sock
       - ssldata:/etc/nginx/certs
+      - ./images/nginx:/etc/nginx/conf.d
       - ${MAGENTO_MEDIA}:/var/www/html/pub/media
 
   phpfpm:
