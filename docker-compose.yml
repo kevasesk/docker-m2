@@ -18,12 +18,12 @@ services:
       - ~/.composer:/var/www/.composer:cached
       - appdata:/var/www/html
       - sockdata:/sock
-      - ssldata:/etc/nginx/certs
+#      - ssldata:/etc/nginx/certs
       - ./images/nginx:/etc/nginx/conf.d
       - ${MAGENTO_MEDIA}:/var/www/html/pub/media
 
   phpfpm:
-    image: markoshust/magento-php:7.3-fpm
+    image: markoshust/magento-php:7.4-fpm
     links:
       - db
     volumes: *appvolumes
@@ -56,6 +56,7 @@ services:
       - "5672:5672"
     volumes:
       - rabbitmqdata:/var/lib/rabbitmq
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     environment:
@@ -63,7 +64,7 @@ services:
       PMA_USER: magento
       PMA_PASSWORD: magento
     ports:
-      - 8080:80
+      - 8081:80
     volumes:
       - ./images/pma/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
 

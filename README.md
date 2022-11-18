@@ -97,4 +97,8 @@ sed -i '' 's/#- ${MAGENTO_MEDIA}/- ${MAGENTO_MEDIA}/g' docker-compose.yml
 bin/restart
 
 open https://magento.local
+
+tips:
+to root login db bin/bash -> mysql -hdb -uroot -pmagento -> GRANT ALL PRIVILEGES ON magento.* TO 'magento'@'%' WITH GRANT OPTION;
+
 ```

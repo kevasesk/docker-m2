@@ -1,0 +1,2 @@
+#!/bin/bash
+docker logs eva_docker_app_1 --tail 100
