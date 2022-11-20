@@ -13,6 +13,7 @@ services:
       - ./src/app/bootstrap.php:/var/www/html/app/bootstrap.php:cached
       - ./src/patches:/var/www/html/patches:cached
       - ./src/vendor:/var/www/html/vendor:delegated
+      - ./src/lib:/var/www/html/lib:delegated
       - ./src/dev:/var/www/html/dev:delegated
       - ./src/app/design:/var/www/html/app/design:cached
       - ./src/app/etc:/var/www/html/app/etc:cached
